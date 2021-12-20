@@ -74,7 +74,7 @@ function for_one() {
         return a - b;
     }
     let result = one(25, 5);
-    alert(result);
+    alert('Разность чисел 25 и 5 = ' + result);
 }
 
 function for_two() {
@@ -82,7 +82,7 @@ function for_two() {
         return a + b;
     }
     let result = one(25, 5);
-    alert(result);
+    alert('Сумма чисел 25 и 5 = ' + result);
 }
 
 function for_three() {
@@ -90,7 +90,7 @@ function for_three() {
         return a / b;
     }
     let result = one(25, 5);
-    alert(result);
+    alert('Деление чисел 25 и 5 = ' + result);
 }
 
 function for_for() {
@@ -98,5 +98,5 @@ function for_for() {
         return a * b;
     }
     let result = one(25, 5);
-    alert(result);
+    alert('Умножение чисел 25 и 5  = ' + result);
 }
