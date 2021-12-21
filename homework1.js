@@ -1,15 +1,18 @@
+'use strict';
+//ДЗ-1//
+//1-1
 function deg() {
     let C = Number(prompt('Введите температуру'));
     let F = (9 / 5) * C + 32;
     alert('Температура в Фаренгейтах = ' + F + '\u2109');
 }
-
+//1-2
 function vasya() {
     let name = ('Василий');
     let admin = name;
     alert(admin);
 }
-//ДЗ-1
+//1-3
 function description() {
     let a = 10 + 10 + "10";
     alert('10 + 10 + "10" = ' + a + '\n В данном случае плюс перед кавычками играет функцию присоедиения строки');
@@ -26,7 +29,9 @@ function description() {
     alert('10 / +"2,5" = ' + e + '\n Неправильная запись десятичных чисел. Разделителем обязана быть точка. Плюс(+) принудительно делает строку числом.')
 }
 
-//ДЗ-2
+//ДЗ-2//
+
+//2-1
 function one() {
     let a = 1, b = 1, c, d;
     c = ++a;
@@ -41,6 +46,7 @@ function one() {
     alert('b = ' + b + ' - во втором и четвертом примере функия инкремента для "b" применилась два раза');
 }
 
+//2-2
 function two() {
     let a = 2;
     let x = 1 + (a *= 2);
@@ -48,6 +54,7 @@ function two() {
     alert('x = ' + x + '\n Арифметическое действие');
 }
 
+//2-3
 function three() {
     let a = Number(prompt('Введите число a'));
     let b = Number(prompt('Введите число b'));
@@ -69,6 +76,7 @@ function three() {
     }
 }
 
+//2-4
 function for_one() {
     function one(a, b) {
         return a - b;
@@ -100,3 +108,68 @@ function for_for() {
     let result = one(25, 5);
     alert('Умножение чисел 25 и 5  = ' + result);
 }
+
+//2-5
+function five() {
+    let operation = prompt('Укажите оператор + - / *');
+    let arg1 = Number(prompt('Введите число a'));
+    let arg2 = Number(prompt('Введите число b'));
+    let result = mathOperation(arg1, arg2, operation);
+    function mathOperation(arg1, arg2, operation) {
+        switch (operation) {
+            case '+':
+                return arg1 + arg2;
+            case '-':
+                return arg1 - arg2;
+            case '*':
+                return arg1 * arg2;
+            case '/':
+                return arg1 / arg2;
+            default:
+                return ('Вы указали неверный оператор \n Пожалуйста, укажите корректный оператор +, -, *, /');
+        }
+    }
+    alert(result);
+}
+
+//2-6
+function six() {
+
+    //способ 1
+    let num = Number(prompt('Введите сумму которую хотите положить на счет'));
+    function Num(n, text_forms) {
+        n = Math.abs(n) % 10;
+        if (n >= 5 && n <= 9) { return text_forms[2]; }
+        if (n > 1 && n < 5) { return text_forms[1]; }
+        if (n == 1) { return text_forms[0]; }
+        return text_forms[2];
+    }
+    alert('Ваша сумма в ' + num + Num(num, [' рубль', ' рубля', ' рублей']) + ' зачислена');
+
+    //способ 2
+    //     let num = prompt('Введите сумму которую хотите положить на счет');
+    //     let n = Array.from(num);
+    //     let last = n[n.length - 1];
+    //     let result = summa(last);
+
+    //     function summa(last) {
+    //         switch (last) {
+    //             case '1':
+    //                 return 'рубль';
+    //             case '0':
+    //             case '5':
+    //             case '6':
+    //             case '7':
+    //             case '8':
+    //             case '9':
+    //                 return 'рублей';
+    //             case '2':
+    //             case '3':
+    //             case '4':
+    //                 return 'рубля';
+    //         }
+    //     }
+    //     alert('Ваша сумма ' + num + ' ' + result + ' успешно зачислена.');
+}
+
+
