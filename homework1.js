@@ -244,7 +244,7 @@ function sale() {
 }
 //3-4
 
-function filter(){
+function filter() {
     const products = [
         {
             id: 3,
@@ -271,14 +271,20 @@ function filter(){
             price: 78,
         },
     ];
-    function filt(products){
-        if (products.photos && (products.photos.length !== 0)){
+    function filt(products) {
+        if (products.photos && (products.photos.length !== 0)) {
             return true;
         }
-
-    }  
-    let withphotos = products.filter(filt); 
+    }
+    let withphotos = products.filter(filt);
     console.log(withphotos);
+
+    //products.forEach(function (products) {
+    let sortir = products.sort(function (a, b) {
+        return a.price - b.price;
+    });
+    // });
+    console.log(sortir);
 }
 
 
