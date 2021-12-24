@@ -179,6 +179,7 @@ function six() {
 }
 
 //ДЗ-3//
+//3-1
 function chetnechet() {
     for (let i = 0; i <= 10; i++) {
         if (i == 0) {
@@ -190,7 +191,7 @@ function chetnechet() {
         }
     }
 }
-
+//3-2
 function vivod() {
     const post = {
         author: "John", //вывести этот текст 
@@ -221,7 +222,7 @@ function vivod() {
     console.log(`Id Jane: ${post.comments[1].userId}`);
     console.log(`Text Jane: ${post.comments[1].text}`);
 }
-
+//3-3
 function sale() {
     const products = [
         {
@@ -241,4 +242,43 @@ function sale() {
         console.log(`Цена товара с id: ${products.id} и начальной ценой: ${products.price}\$ со скидкой 15% = ${products.price - (products.price * 15 / 100)}\$`);
     })
 }
+//3-4
+
+function filter(){
+    const products = [
+        {
+            id: 3,
+            price: 127,
+            photos: [
+                "1.jpg",
+                "2.jpg",
+            ]
+        },
+        {
+            id: 5,
+            price: 499,
+            photos: []
+        },
+        {
+            id: 10,
+            price: 26,
+            photos: [
+                "3.jpg"
+            ]
+        },
+        {
+            id: 8,
+            price: 78,
+        },
+    ];
+    function filt(products){
+        if (products.photos && (products.photos.length !== 0)){
+            return true;
+        }
+
+    }  
+    let withphotos = products.filter(filt); 
+    console.log(withphotos);
+}
+
 
