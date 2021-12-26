@@ -282,4 +282,19 @@ function filter() {
     console.log(sortir);
 }
 
+//3-5
+//Не понял как вывести все числа в консоль не записывая в теле for?
+function zeronine() {
+    for (let i = 0; i < 10; i++) {
+        console.log(i);
+    }
+}
+
+//3-6
+function slide() {
+    for (let i = 0, q = 'x'; i < 20; i++) {
+        q = q + 'x';
+        console.log(q);
+    }
+}
 
