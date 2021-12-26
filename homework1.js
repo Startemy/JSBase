@@ -70,7 +70,7 @@ function three() {
     } else if (a < 0 && b < 0) {
         result = a * b;
         alert(`Произведение чисел = ${result}`);
-    } else if (a > 0 && b < 0 || a < 0 && b > 0) {
+    } else if (a > 0 && b < 0 || a < 0 && b > 0 || a == b) {
         result = a + b;
         alert(`Сумма чисел = ${result}`);
     } else {
