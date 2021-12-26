@@ -222,6 +222,7 @@ function vivod() {
     console.log(`Id Jane: ${post.comments[1].userId}`);
     console.log(`Text Jane: ${post.comments[1].text}`);
 }
+
 //3-3
 function sale() {
     const products = [
@@ -238,21 +239,21 @@ function sale() {
             price: 1000,
         },
     ];
-    products.forEach(function (products) {
-        console.log(`Цена товара с id: ${products.id} и начальной ценой: ${products.price}\$ со скидкой 15% = ${products.price - (products.price * 15 / 100)}\$`);
-    })
-}
-//3-4
 
+    ////НЕ ЗАБЫВАТЬ ЧТО forEach НИЧЕГО НЕ ВОЗВРАЩАЕТ!!!!! (Для себя )
+    let disc = products.forEach(function (products) {
+        console.log(`Цена товара с id: ${products.id} и начальной ценой: ${products.price}\$ со скидкой 15% = ${products.price - (products.price * 15 / 100)}\$`);
+    });
+
+}
+
+//3-4
 function filter() {
     const products = [
         {
             id: 3,
             price: 127,
-            photos: [
-                "1.jpg",
-                "2.jpg",
-            ]
+            photos: ["1.jpg", "2.jpg",]
         },
         {
             id: 5,
@@ -262,28 +263,22 @@ function filter() {
         {
             id: 10,
             price: 26,
-            photos: [
-                "3.jpg"
-            ]
+            photos: ["3.jpg"]
         },
         {
             id: 8,
             price: 78,
         },
     ];
-    function filt(products) {
-        if (products.photos && (products.photos.length !== 0)) {
-            return true;
-        }
-    }
-    let withphotos = products.filter(filt);
+    //Фильтр
+    let withphotos = products.filter(function (products) {
+        return products.photos && products.photos.length !== 0;
+    });
     console.log(withphotos);
-
-    //products.forEach(function (products) {
+    ///Сортировка
     let sortir = products.sort(function (a, b) {
         return a.price - b.price;
     });
-    // });
     console.log(sortir);
 }
 
