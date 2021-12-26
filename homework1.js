@@ -298,3 +298,69 @@ function slide() {
     }
 }
 
+
+
+/////ДЗ-4////////////
+//4-1
+function numtoobj() {
+    let num = Number(prompt('Введите число от 0 до 999'));
+    num = Math.floor(num);
+    if (num < 0 || num > 999 || !Number.isInteger(num)) {
+        alert('Вы ввели не то число или вовсе не число');
+    }
+    class Propofnum {
+        constructor(units, tens, hundreds) {
+            this.units = units;
+            this.tens = tens;
+            this.hundreds = hundreds;
+        }
+    }
+    let obj = new Propofnum(num % 10, Math.floor(num / 10) % 10, Math.floor(num / 100))
+    console.log(obj);
+}
+
+//4-1-1
+function prod() {
+    class Product {
+        constructor(name, price) {
+            this.name = name;
+            this.price = price;
+        }
+        make25PercentDiscount() {
+            this.price = (this.price - (this.price * 25 / 100));
+        }
+    }
+    let product = new Product('Milanchiki', 45);
+    product.make25PercentDiscount();
+    console.log(product);
+}
+
+//4-1-2
+function post() {
+    let push = prompt('Сообщение');
+    class Post {
+        constructor(author, text, date) {
+            this.author = author;
+            this.text = text;
+            this.date = date;
+        }
+        medit() {
+            this.text = push;
+        }
+    }
+    class Attac extends Post {
+        constructor(author, text, date) {
+            super(author, text, date);
+            this.highlighted = false;
+        }
+        makeTextHighlighted() {
+            this.highlighted = true;
+        }
+    }
+    let attac = new Attac('Artem', '', '26.12.21');
+    attac.makeTextHighlighted();
+    attac.medit();
+    console.log(attac);
+
+}
+
