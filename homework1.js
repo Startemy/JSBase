@@ -321,42 +321,75 @@ function numtoobj() {
 
 //4-1-1
 function prod() {
-    class Product {
-        constructor(name, price) {
-            this.name = name;
-            this.price = price;
-        }
-        make25PercentDiscount() {
-            this.price = (this.price - (this.price * 25 / 100));
-        }
+    ////es5
+    function Product(name, price) {
+        this.name = name;
+        this.price = price;
+    }
+    Product.prototype.make25PercentDiscount = function () {
+        this.price = (this.price - (this.price * 25 / 100));
     }
     let product = new Product('Milanchiki', 45);
     product.make25PercentDiscount();
     console.log(product);
+
+    /////es6
+    // class Product {
+    //     constructor(name, price) {
+    //         this.name = name;
+    //         this.price = price;
+    //     }
+    //     make25PercentDiscount() {
+    //         this.price = (this.price - (this.price * 25 / 100));
+    //     }
+    // }
+    // let product = new Product('Milanchiki', 45);
+    // product.make25PercentDiscount();
+    // console.log(product);
 }
 
 //4-1-2
 function post() {
     let push = prompt('Сообщение');
-    class Post {
-        constructor(author, text, date) {
-            this.author = author;
-            this.text = text;
-            this.date = date;
-        }
-        medit() {
-            this.text = push;
-        }
+    ///es5
+    function Post(author, text, date) {
+        this.author = author;
+        this.text = text;
+        this.date = date;
     }
-    class Attac extends Post {
-        constructor(author, text, date) {
-            super(author, text, date);
-            this.highlighted = false;
-        }
-        makeTextHighlighted() {
-            this.highlighted = true;
-        }
+    Post.prototype.medit = function () {
+        this.text = push;
     }
+    function Attac(author, text, date) {
+        Post.call(this, author, text, date);
+        this.highlighted = false;
+    }
+    Attac.prototype = Object.create(Post.prototype);
+    Attac.prototype.constructor = Attac;
+    Attac.prototype.makeTextHighlighted = function () {
+        this.highlighted = true;
+    }
+
+    /////////es6
+    // class Post {
+    //     constructor(author, text, date) {
+    //         this.author = author;
+    //         this.text = text;
+    //         this.date = date;
+    //     }
+    //     medit() {
+    //         this.text = push;
+    //     }
+    // }
+    // class Attac extends Post {
+    //     constructor(author, text, date) {
+    //         super(author, text, date);
+    //         this.highlighted = false;
+    //     }
+    //     makeTextHighlighted() {
+    //         this.highlighted = true;
+    //     }
+    // }
     let attac = new Attac('Artem', '', '26.12.21');
     attac.makeTextHighlighted();
     attac.medit();
