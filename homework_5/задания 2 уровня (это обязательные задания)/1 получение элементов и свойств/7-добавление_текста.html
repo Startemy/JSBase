@@ -19,9 +19,9 @@
 
     <script>
         let a = document.querySelectorAll('a');
-        let text = a.forEach(function (text) {
-            if (text.innerHTML == '') {
-                text.innerHTML = 'ссылка';
+        a.forEach(function (a) {
+            if (a.innerHTML == '') {
+                a.innerHTML = 'ссылка';
             }
         });
 

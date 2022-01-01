@@ -28,9 +28,9 @@
 
     <script>
         let card = document.querySelectorAll('.card');
-        let cls = card.forEach(function (cls) {
-            if (cls.classList.contains('hidden') == true) {
-                cls.remove();
+        card.forEach(function (card) {
+            if (card.classList.contains('hidden') == true) {
+                card.remove();
             }
         });
 
