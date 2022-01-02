@@ -22,11 +22,10 @@
     -->
     <script>
         let p = document.querySelector('p');
-        p.onclick = cls;
+        p.addEventListener('click', cls);
         function cls(event) {
-            let list = event.target.classList;
-            console.log(list);
-            let classel = list.forEach(function (classel) {
+            console.log(event.target.classList);
+            let classel = event.target.classList.forEach(function (classel) {
                 console.log(classel);
             });
         }       

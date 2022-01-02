@@ -21,12 +21,12 @@
     -->
     <script>
         let div = document.querySelector('div');
-        div.onclick = func;
+        div.addEventListener('click', func);
         function func(event) {
-            console.log(event.target.getAttribute('id'));
-            console.log(event.target.getAttribute('tabindex'));
-            console.log(event.target.getAttribute('aria-labelledby'));
-            console.log(event.target.getAttribute('aria-hidden'));
+            console.log('id = ' + event.target.getAttribute('id'));
+            console.log('tabindex = ' + event.target.getAttribute('tabindex'));
+            console.log('aria-labelledby = ' + event.target.getAttribute('aria-labelledby'));
+            console.log('aria-hidden = ' + event.target.getAttribute('aria-hidden'));
         }
     </script>
 </body>

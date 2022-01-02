@@ -20,7 +20,7 @@
     -->
     <script>
         let btn = document.querySelector('#one');
-        btn.onclick = clik;
+        btn.addEventListener('click', clik);
         function clik(event) {
             console.log(event.target.className);
             console.log(event.target.id);
