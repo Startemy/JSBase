@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <p class="first second third">
         Lorem ipsum dolor sit.
@@ -18,5 +20,17 @@
     3. Переберите с помощью forEach event.target.classList и выведите каждый класс
     в консоль.
     -->
+    <script>
+        let p = document.querySelector('p');
+        p.onclick = cls;
+        function cls(event) {
+            let list = event.target.classList;
+            console.log(list);
+            let classel = list.forEach(function (classel) {
+                console.log(classel);
+            });
+        }       
+    </script>
 </body>
+
 </html>
