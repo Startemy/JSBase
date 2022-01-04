@@ -103,38 +103,47 @@ function for_one() {
     }
     let result_for = for_(25, 5);
     console.log(`Умножение чисел 25 и 5  = ${result_for}`);
-
 }
 
 //2-5
 function five() {
     let operation = prompt('Укажите оператор + - / *');
-    let arg1 = Number(prompt('Введите число a'));
-    let arg2 = Number(prompt('Введите число b'));
-    let result = mathOperation(arg1, arg2, operation);
-    function mathOperation(arg1, arg2, operation) {
+    let a = Number(prompt('Введите число a'));
+    let b = Number(prompt('Введите число b'));
+    function one(a, b) {
+        return a - b;
+    }
+    function two(a, b) {
+        return a + b;
+    }
+    function three(a, b) {
+        return a / b;
+    }
+    function for_(a, b) {
+        return a * b;
+    }
+    function mathOperation(a, b, operation) {
         switch (operation) {
             case '+':
-                return arg1 + arg2;
+                return two(a, b);
             case '-':
-                return arg1 - arg2;
+                return one(a, b);
             case '*':
-                return arg1 * arg2;
+                return for_(a, b);
             case '/':
-                return arg1 / arg2;
+                return three(a, b);
             default:
                 return ('Вы указали неверный оператор \n Пожалуйста, укажите корректный оператор +, -, *, /');
         }
     }
-    /////Можно ли записать по другому?
     if (operation == '+') {
-        alert(`Сумма = ${result}`);
+        alert(`Сумма = ${mathOperation(a, b, operation)}`);
     } else if (operation == '-') {
-        alert(`Разность = ${result}`);
+        alert(`Разность = ${mathOperation(a, b, operation)}`);
     } else if (operation == '*') {
-        alert('Произведение = ' + result);
+        alert(`Произведение = ${mathOperation(a, b, operation)}`);
     } else {
-        alert(`Деление = ${result}`);
+        alert(`Деление = ${mathOperation(a, b, operation)}`);
     }
 }
 
