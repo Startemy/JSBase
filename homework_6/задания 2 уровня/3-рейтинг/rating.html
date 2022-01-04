@@ -11,15 +11,16 @@
         }
         .golden {
             color: gold;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
-    <i id="first" class="fas fa-star"></i>
-    <i id="second" class="fas fa-star"></i>
-    <i id="third" class="fas fa-star"></i>
-    <i id="fourth" class="fas fa-star"></i>
-    <i id="fifth" class="fas fa-star"></i>
+    <i id="first" class="fas fa-star">*</i>
+    <i id="second" class="fas fa-star">*</i>
+    <i id="third" class="fas fa-star">*</i>
+    <i id="fourth" class="fas fa-star">*</i>
+    <i id="fifth" class="fas fa-star">*</i>
 
     <!-- Задание. Используя заготовку, сделайте чтобы при наведении на вторую звезду
     подсвечивались первая и вторая звезды. При наведени на третью звезду подсвечивались
@@ -36,18 +37,39 @@
         let thirdStar = document.getElementById('third');
         let fourthStar = document.getElementById('fourth');
         let fifthStar = document.getElementById('fifth');
-
         let goldenClass = 'golden';
 
-        firstStar.addEventListener('mouseover', function() {
-            if (!firstStar.classList.contains(goldenClass)) {
-                firstStar.classList.add(goldenClass);
-            }
-        });
+        let Star = [firstStar,secondStar,thirdStar,fourthStar,fifthStar];
+        let len = Star.length;
 
-        firstStar.addEventListener('mouseout', function() {
-            firstStar.classList.remove(goldenClass);
-        });
+        for(let i = 0; i < len; i++){
+            Star[i].addEventListener('mouseover', function(){
+                if (!Star[i].classList.contains(goldenClass)) {
+                    Star[i].classList.add(goldenClass);
+                    for(let q=0; q < i; q++){
+                        Star[q].classList.add(goldenClass);
+                        
+                        Star[i].addEventListener('mouseout', function() {
+                        Star[q].classList.remove(goldenClass);
+                        });
+                    }
+                }
+            });
+            Star[i].addEventListener('mouseout', function() {
+                Star[i].classList.remove(goldenClass);
+            });
+        };
+
+
+        // firstStar.addEventListener('mouseover', function() {
+        //     if (!firstStar.classList.contains(goldenClass)) {
+        //         firstStar.classList.add(goldenClass);
+        //     }
+        // });
+
+        // firstStar.addEventListener('mouseout', function() {
+        //     firstStar.classList.remove(goldenClass);
+        // });
     </script>
 </body>
 </html>
