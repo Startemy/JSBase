@@ -111,7 +111,11 @@ function five() {
     let a = Number(prompt('Введите число a'));
     let b = Number(prompt('Введите число b'));
     function one(a, b) {
-        return a - b;
+        if (a >= 0 && b >= 0 && a > b) {
+            return a - b;
+        } else if (a >= 0 && b >= 0 && b > a) {
+            return b - a;
+        }
     }
     function two(a, b) {
         return a + b;
@@ -403,6 +407,4 @@ function post() {
     attac.makeTextHighlighted();
     attac.medit();
     console.log(attac);
-
 }
-
