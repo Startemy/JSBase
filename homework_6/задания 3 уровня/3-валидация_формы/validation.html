@@ -33,10 +33,21 @@
             4.2 если input пустой тогда вы обращаетесь к его style.borderColor
             и делаете его равным red
             4.3 чтобы остановить отправку формы используйте event.preventDefault()
-     -->
+    -->
 
     <script>
-        
+        let form = document.querySelector('form');
+        let int = document.querySelectorAll('input');
+        form.addEventListener('submit', empty);
+        function empty(event){
+            int.forEach(function(e){
+            let val = e.hasAttribute('value');
+        });
+            if(val = false){
+                event.currentTrget.style.borderColor = 'red';
+                event.preventDefault()
+            }
+        }
     </script>
 </body>
 </html>
