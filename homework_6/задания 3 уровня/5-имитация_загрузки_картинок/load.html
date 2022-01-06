@@ -45,11 +45,13 @@
     <script>
 
         let prod = document.querySelectorAll('img');
-        let i = 0;
-        setTimeout(
-            prod.forEach(function (img) {
-                img.src = 'images/' + ++i + '.jpg';
-            }), 3000);
+        setTimeout(function imge(){
+            for(let i=0; i <= prod.length-1;i++){
+                let q=i;
+                image = 'images/' + [++q] + '.jpg';
+                prod[i].src = image;
+            }
+        },3000);
     </script>
 </body>
 
