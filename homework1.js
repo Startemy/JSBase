@@ -158,9 +158,15 @@ function six() {
     let num = Number(prompt('Введите сумму которую хотите положить на счет'));
     function Num(n, text_forms) {
         n = Math.abs(n) % 10;
-        if (n >= 5 && n <= 9) { return text_forms[2]; }
-        if (n > 1 && n < 5) { return text_forms[1]; }
-        if (n == 1) { return text_forms[0]; }
+        if (n >= 5 && n <= 9) {
+            return text_forms[2];
+        }
+        if (n > 1 && n < 5) {
+            return text_forms[1];
+        }
+        if (n == 1) {
+            return text_forms[0];
+        }
         return text_forms[2];
     }
     alert(`Ваша сумма в ${num}${Num(num, [' рубль', ' рубля', ' рублей'])} зачислена`);

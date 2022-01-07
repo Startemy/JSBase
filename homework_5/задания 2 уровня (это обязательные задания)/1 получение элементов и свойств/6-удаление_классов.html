@@ -25,12 +25,12 @@
     1. Найдите все "карточки" с классом .card.
     2. Проверьте есть ли у карточки класс hidden с помощью метода contains(),
     и если есть, то удалите с помощью метода remove(). -->
- 
+
     <script>
         //Непонятно удалить калсс или всю карточку?
         let card = document.querySelectorAll('.card');
         card.forEach(card => {
-            if (card.classList.contains('hidden') === true) {
+            if (card.classList.contains('hidden')) {
                 card.classList.remove('hidden');
             }
         });
