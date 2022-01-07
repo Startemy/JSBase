@@ -19,8 +19,8 @@
 
     <script>
         let a = document.querySelectorAll('a');
-        a.forEach(function (a) {
-            if (a.innerHTML == '') {
+        a.forEach(a => {
+            if (a.innerHTML != 'ссылка') { //почему не работает contains?
                 a.innerHTML = 'ссылка';
             }
         });

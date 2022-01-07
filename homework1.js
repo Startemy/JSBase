@@ -254,10 +254,12 @@ function sale() {
     ];
 
     ////НЕ ЗАБЫВАТЬ ЧТО forEach НИЧЕГО НЕ ВОЗВРАЩАЕТ!!!!! (Для себя )
-    let disc = products.forEach(function (products) {
-        console.log(`Цена товара с id: ${products.id} и начальной ценой: ${products.price}\$ со скидкой 15% = ${products.price - (products.price * 15 / 100)}\$`);
-    });
-
+    products.forEach(products => {
+        let startprice = products.price;
+        products.price = products.price - (products.price * 15 / 100); //Почему массив меняется, только если параментр функции products. А если например prod то нет?
+        console.log(`Цена товара с id: ${products.id} и начальной ценой: ${startprice}\$ со скидкой 15% = ${products.price - (products.price * 15 / 100)}\$`);
+        });
+    console.log(products);
 }
 
 //3-4

@@ -24,9 +24,10 @@
         let p = document.querySelector('p');
         p.addEventListener('click', cls);
         function cls(event) {
-            console.log(event.target.classList);
-            let classel = event.target.classList.forEach(function (classel) {
-                console.log(classel);
+            let clslst = event.target.classList;
+            console.log(clslst);
+            clslst.forEach(clsEl => {
+                console.log(clsEl);
             });
         }       
     </script>
