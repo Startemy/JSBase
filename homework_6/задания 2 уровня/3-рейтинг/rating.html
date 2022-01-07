@@ -47,23 +47,39 @@
         let Star = [firstStar, secondStar, thirdStar, fourthStar, fifthStar];
         let len = Star.length;
 
+        // for (let i = 0; i < len; i++) {
+        //     Star[i].addEventListener('mouseover', function () {
+        //         if (!Star[i].classList.contains(goldenClass)) {
+        //             Star[i].classList.add(goldenClass);
+        //             for (let q = 0; q < i; q++) {
+        //                 Star[q].classList.add(goldenClass);
+
+        //                 Star[i].addEventListener('mouseout', function () {
+        //                     Star[q].classList.remove(goldenClass);
+        //                 });
+        //             }
+        //         }
+        //     });
+        //     Star[i].addEventListener('mouseout', function () {
+        //         Star[i].classList.remove(goldenClass);
+        //     });
+        // };
+
+        ////Способ 2
         for (let i = 0; i < len; i++) {
             Star[i].addEventListener('mouseover', function () {
-                if (!Star[i].classList.contains(goldenClass)) {
+                while (Star[i]) {
                     Star[i].classList.add(goldenClass);
-                    for (let q = 0; q < i; q++) {
-                        Star[q].classList.add(goldenClass);
-
-                        Star[i].addEventListener('mouseout', function () {
-                            Star[q].classList.remove(goldenClass);
-                        });
-                    }
+                    Star[i] = Star[i].previousElementSibling;
+                    Star[i].addEventListener('mouseout', function () {
+                        Star[i] = Star[i].previousElementSibling;
+                        Star[i].classList.remove(goldenClass);
+                    });
                 }
             });
-            Star[i].addEventListener('mouseout', function () {
-                Star[i].classList.remove(goldenClass);
-            });
+
         };
+
     </script>
 </body>
 

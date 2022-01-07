@@ -258,7 +258,7 @@ function sale() {
         let startprice = products.price;
         products.price = products.price - (products.price * 15 / 100); //Почему массив меняется, только если параментр функции products. А если например prod то нет?
         console.log(`Цена товара с id: ${products.id} и начальной ценой: ${startprice}\$ со скидкой 15% = ${products.price - (products.price * 15 / 100)}\$`);
-        });
+    });
     console.log(products);
 }
 
@@ -286,12 +286,15 @@ function filter() {
         },
     ];
     //Фильтр
-    let withphotos = products.filter(function (products) {
+    // let withphotos = products.filter(products => {
+    //     return products.photos && products.photos.length !== 0;
+    // });
+    console.log(products.filter(products => {
         return products.photos && products.photos.length !== 0;
-    });
-    console.log(withphotos);
+    }));
+
     ///Сортировка
-    let sortir = products.sort(function (a, b) {
+    let sortir = products.sort((a, b) => {
         return a.price - b.price;
     });
     console.log(sortir);
