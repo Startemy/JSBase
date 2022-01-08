@@ -45,7 +45,7 @@
         let goldenClass = 'golden';
 
         let Star = [firstStar, secondStar, thirdStar, fourthStar, fifthStar];
-        let len = Star.length;
+        let len = Star.length-1;
 
         // for (let i = 0; i < len; i++) {
         //     Star[i].addEventListener('mouseover', function () {
@@ -66,19 +66,19 @@
         // };
 
         ////Способ 2
-        for (let i = 0; i < len; i++) {
+        for (let i = 0; i <= len; i++) {
             Star[i].addEventListener('mouseover', function () {
                 while (Star[i]) {
                     Star[i].classList.add(goldenClass);
                     Star[i] = Star[i].previousElementSibling;
-                    Star[i].addEventListener('mouseout', function () {
-                        Star[i] = Star[i].previousElementSibling;
-                        Star[i].classList.remove(goldenClass);
-                    });
                 }
             });
-
-        };
+            Star[i].addEventListener('mouseout', function () {
+                for (i = 0; i <= len; i++) {
+                        Star[i].classList.remove(goldenClass);
+                }
+            });
+        }
 
     </script>
 </body>
