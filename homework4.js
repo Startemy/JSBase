@@ -1,6 +1,4 @@
 'use strict';
-
-/////ДЗ-4////////////
 //4-1 Написать функцию, преобразующую число в объект
 function numtoobj() {
     let num = Number(prompt('Введите число от 0 до 999'));
@@ -29,7 +27,7 @@ function prod() {
     Product.prototype.make25PercentDiscount = function () {
         this.price = (this.price - (this.price * 25 / 100));
     }
-    let product = new Product('Milanchiki', 45);
+    const product = new Product('Milanchiki', 45);
     product.make25PercentDiscount();
     console.log(product);
 
@@ -44,14 +42,14 @@ function prod() {
             this.price = (this.price - (this.price * 25 / 100));
         }
     }
-    let product_ = new Product_scnd('Milanchiki', 45);
+    const product_ = new Product_scnd('Milanchiki', 45);
     product.make25PercentDiscount();
     console.log(product_);
 }
 
 //4-1-2
 function post() {
-    let push = prompt('Сообщение');
+    const push = prompt('Сообщение');
     ///es5
     function Post(author, text, date) {
         this.author = author;
@@ -67,9 +65,14 @@ function post() {
     }
     Attac.prototype = Object.create(Post.prototype);
     Attac.prototype.constructor = Attac;
+
     Attac.prototype.makeTextHighlighted = function () {
         this.highlighted = true;
     }
+    const attac = new Attac('Artem', '', new Date().toLocaleDateString());
+    attac.makeTextHighlighted();
+    attac.medit();
+    console.log(attac);
 
     ///////es6
     class Post_scnd {
@@ -78,6 +81,7 @@ function post() {
             this.text = text;
             this.date = date;
         }
+
         medit() {
             this.text = push;
         }
@@ -91,8 +95,10 @@ function post() {
             this.highlighted = true;
         }
     }
-    let attac = new Attac_scnd('Artem', '', '26.12.21');
-    attac.makeTextHighlighted();
-    attac.medit();
-    console.log(attac);
+    const attac_ = new Attac_scnd('Artem', '', new Date().toLocaleDateString());
+    attac_.makeTextHighlighted();
+    attac_.medit();
+    console.log(attac_);
+
+
 }

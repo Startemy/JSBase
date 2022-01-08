@@ -21,12 +21,12 @@
     в консоль.
     -->
     <script>
+        'use strict';
         let p = document.querySelector('p');
         p.addEventListener('click', cls);
         function cls(event) {
-            let clslst = event.target.classList;
-            console.log(clslst);
-            clslst.forEach(clsEl => {
+            console.log(event.target.classList);
+            event.target.classList.forEach(clsEl => {
                 console.log(clsEl);
             });
         }       
