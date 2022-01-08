@@ -42,7 +42,7 @@
         let int = document.querySelectorAll('input');
         form.addEventListener('submit', empty);
         function empty(event) {
-            int.forEach(function (e) {
+            int.forEach(e => {
                 let val = e.value;
                 if (val === "") {
                     e.style.borderColor = 'red';
