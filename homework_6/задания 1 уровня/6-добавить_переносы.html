@@ -23,7 +23,7 @@
 
     <script>
         'use strict';
-        let ipt = document.querySelectorAll('input');
+        let ipt = document.querySelectorAll('input:not(:last-of-type)');
         ipt.forEach(br => {
             br.insertAdjacentHTML("afterend", '<br>'); //Как исключить последний элемент?
         });

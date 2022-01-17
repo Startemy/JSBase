@@ -39,7 +39,7 @@ function prod() {
             this.price = price;
         }
         make25PercentDiscount() {
-            this.price = (this.price - (this.price * 25 / 100));
+            this.price = this.price - (this.price * 25 / 100);
         }
     }
     const product_ = new Product_scnd('Milanchiki', 45);
@@ -49,15 +49,14 @@ function prod() {
 
 //4-1-2
 function post() {
-    const push = prompt('Сообщение');
     ///es5
     function Post(author, text, date) {
         this.author = author;
         this.text = text;
         this.date = date;
     }
-    Post.prototype.medit = function () {
-        this.text = push;
+    Post.prototype.medit = function (text) {
+        this.text = text;
     }
     function Attac(author, text, date) {
         Post.call(this, author, text, date);
@@ -69,36 +68,36 @@ function post() {
     Attac.prototype.makeTextHighlighted = function () {
         this.highlighted = true;
     }
-    const attac = new Attac('Artem', '', new Date().toLocaleDateString());
+    const attac = new Attac('Artem', 'Привет', new Date().toLocaleDateString());
     attac.makeTextHighlighted();
-    attac.medit();
+    attac.medit('Привет всем');
     console.log(attac);
 
     ///////es6
-    class Post_scnd {
-        constructor(author, text, date) {
-            this.author = author;
-            this.text = text;
-            this.date = date;
-        }
+    // class Post_scnd {
+    //     constructor(author, text, date) {
+    //         this.author = author;
+    //         this.text = text;
+    //         this.date = date;
+    //     }
 
-        medit() {
-            this.text = push;
-        }
-    }
-    class Attac_scnd extends Post_scnd {
-        constructor(author, text, date) {
-            super(author, text, date);
-            this.highlighted = false;
-        }
-        makeTextHighlighted() {
-            this.highlighted = true;
-        }
-    }
-    const attac_ = new Attac_scnd('Artem', '', new Date().toLocaleDateString());
-    attac_.makeTextHighlighted();
-    attac_.medit();
-    console.log(attac_);
+    //     medit(text) {
+    //         this.text = text;
+    //     }
+    // }
+    // class Attac_scnd extends Post_scnd {
+    //     constructor(author, text, date) {
+    //         super(author, text, date);
+    //         this.highlighted = false;
+    //     }
+    //     makeTextHighlighted() {
+    //         this.highlighted = true;
+    //     }
+    // }
+    // const attac_ = new Attac_scnd('Artem', 'Привет', new Date().toLocaleDateString());
+    // attac_.makeTextHighlighted();
+    // attac_.medit('Привет всем');
+    // console.log(attac_);
 
 
 }
