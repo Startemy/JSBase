@@ -1,5 +1,5 @@
 'use strict';
-/ДЗ-3//
+
 //3-1 С помощью цикла for написать алгоритм для вывода чисел
 function chetnechet() {
     for (let i = 0; i <= 10; i++) {
@@ -12,7 +12,9 @@ function chetnechet() {
         }
     }
 }
+
 //3-2 Выведите в консоль значения, указанные рядом с комментариями
+
 function vivod() {
     const post = {
         author: "John", //вывести этот текст 
@@ -66,12 +68,14 @@ function sale() {
         let startprice = products.price;
         products.price = products.price - (products.price * 15 / 100); //Почему массив меняется, только если параментр функции products. А если например prod то нет?
         console.log(`Цена товара с id: ${products.id} и начальной ценой: ${startprice}\$ со скидкой 15% = ${products.price - (products.price * 15 / 100)}\$`);
-        });
+    });
     console.log(products);
 }
 
-//3-4 1.Получить все товары, у которых есть фотографии
-//    2.Отсортируйте товары по цене (от низкой цены к высокой)
+//3-4 
+
+// 1.Получить все товары, у которых есть фотографии
+// 2.Отсортируйте товары по цене (от низкой цены к высокой)
 function filter() {
     const products = [
         {
@@ -94,19 +98,14 @@ function filter() {
             price: 78,
         },
     ];
-    /**
-     * @withphotos фильтр по наличию значения photos и по его наполнению
-     */
-    let withphotos = products.filter(function (products) {
+    /** @withphotos фильтр по наличию значения photos и по его наполнению */
+    const withphotos = products.filter(products => {
         return products.photos && products.photos.length !== 0;
     });
     console.log(withphotos);
 
-    Сортировка
-    /**
-     * @sortir Сортировка по цене
-     */
-    let sortin = products.sort(function (a, b) {
+    /** @sortir Сортировка по цене */
+    let sortin = products.sort((a, b) => {
         return a.price - b.price;
     });
     console.log(sortin);
@@ -115,14 +114,15 @@ function filter() {
 //3-5 ывести с помощью цикла for числа от 0 до 9, НЕ используя тело цикла
 
 function zeronine() {
-    for (let i = 0; i < 10; console.log(i++)) {
-    }
+    for (let i = 0; i < 10; console.log(i++)) { }
 }
 
 //3-6
 function slide() {
-    for (let i = 0, q = 'x'; i < 20; i++) {
-        q = q + 'x';
+    for (let i = 0, q = ''; i < 20; i++) {
+        q += 'x';
         console.log(q);
+        /** */
+        console.log('x'.repeat(i + 1));
     }
 }

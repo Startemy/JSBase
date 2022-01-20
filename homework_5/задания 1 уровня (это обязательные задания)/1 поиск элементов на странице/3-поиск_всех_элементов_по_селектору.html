@@ -29,12 +29,8 @@
     и выведите их в консоль. -->
 
     <script>
-        let link = document.querySelectorAll('.card-body');
-        link.forEach(function () {
-            for (let links of link) {
-                console.log(links.querySelectorAll('.card-link'));
-            }
-        });
+        'use strict';
+        console.log(document.querySelectorAll('.card-body > .card-link'));
     </script>
 </body>
 

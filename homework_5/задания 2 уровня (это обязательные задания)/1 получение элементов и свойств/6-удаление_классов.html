@@ -27,15 +27,13 @@
     и если есть, то удалите с помощью метода remove(). -->
 
     <script>
-        //Непонятно удалить калсс или всю карточку?
+        'use strict';
         let card = document.querySelectorAll('.card');
         card.forEach(card => {
             if (card.classList.contains('hidden')) {
                 card.classList.remove('hidden');
             }
         });
-
-
     </script>
 </body>
 

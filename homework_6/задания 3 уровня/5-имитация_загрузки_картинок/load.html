@@ -43,15 +43,14 @@
     -->
 
     <script>
-<<<<<<< HEAD
+        'use strict';
         let prod = document.querySelectorAll('img');
-        setTimeout(function imge(){
-            for(let i=0; i <= prod.length-1;i++){
-                let q=i;
-                image = 'images/' + [++q] + '.jpg';
-                prod[i].src = image;
+        setTimeout(function imge() {
+            for (let i = 0; i <= prod.length - 1; i++) {
+                let q = i;
+                prod[i].src = `images/${++q}.jpg`;
             }
-        },3000);
+        }, 3000);
     </script>
 </body>
 

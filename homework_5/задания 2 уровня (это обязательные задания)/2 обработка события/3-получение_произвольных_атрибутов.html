@@ -20,14 +20,15 @@
     каждого атрибута и выведите в консоль.
     -->
     <script>
+        'use strict';
         let div = document.querySelector('div');
         div.addEventListener('click', func);
         function func(event) {
             let div = event.target;
-            console.log('id = ' + div.getAttribute('id'));
-            console.log('tabindex = ' + div.getAttribute('tabindex'));
-            console.log('aria-labelledby = ' + div.getAttribute('aria-labelledby'));
-            console.log('aria-hidden = ' + div.getAttribute('aria-hidden'));
+            console.log(`id = ${event.target.getAttribute('id')}`);
+            console.log(`tabindex = ${event.target.getAttribute('tabindex')}`);
+            console.log(`aria-labelledby = ${event.target.getAttribute('aria-labelledby')}`);
+            console.log(`aria-hidden = ${event.target.getAttribute('aria-hidden')}`);
         }
     </script>
 </body>

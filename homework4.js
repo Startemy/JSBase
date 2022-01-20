@@ -1,6 +1,4 @@
 'use strict';
-
-/////ДЗ-4////////////
 //4-1 Написать функцию, преобразующую число в объект
 function numtoobj() {
     let num = Number(prompt('Введите число от 0 до 999'));
@@ -29,7 +27,7 @@ function prod() {
     Product.prototype.make25PercentDiscount = function () {
         this.price = (this.price - (this.price * 25 / 100));
     }
-    let product = new Product('Milanchiki', 45);
+    const product = new Product('Milanchiki', 45);
     product.make25PercentDiscount();
     console.log(product);
 
@@ -41,25 +39,24 @@ function prod() {
             this.price = price;
         }
         make25PercentDiscount() {
-            this.price = (this.price - (this.price * 25 / 100));
+            this.price = this.price - (this.price * 25 / 100);
         }
     }
-    let product_ = new Product_scnd('Milanchiki', 45);
+    const product_ = new Product_scnd('Milanchiki', 45);
     product.make25PercentDiscount();
     console.log(product_);
 }
 
 //4-1-2
 function post() {
-    let push = prompt('Сообщение');
     ///es5
     function Post(author, text, date) {
         this.author = author;
         this.text = text;
         this.date = date;
     }
-    Post.prototype.medit = function () {
-        this.text = push;
+    Post.prototype.medit = function (text) {
+        this.text = text;
     }
     function Attac(author, text, date) {
         Post.call(this, author, text, date);
@@ -67,32 +64,40 @@ function post() {
     }
     Attac.prototype = Object.create(Post.prototype);
     Attac.prototype.constructor = Attac;
+
     Attac.prototype.makeTextHighlighted = function () {
         this.highlighted = true;
     }
+    const attac = new Attac('Artem', 'Привет', new Date().toLocaleDateString());
+    attac.makeTextHighlighted();
+    attac.medit('Привет всем');
+    console.log(attac);
 
     ///////es6
-    class Post_scnd {
-        constructor(author, text, date) {
-            this.author = author;
-            this.text = text;
-            this.date = date;
-        }
-        medit() {
-            this.text = push;
-        }
-    }
-    class Attac_scnd extends Post_scnd {
-        constructor(author, text, date) {
-            super(author, text, date);
-            this.highlighted = false;
-        }
-        makeTextHighlighted() {
-            this.highlighted = true;
-        }
-    }
-    let attac = new Attac_scnd('Artem', '', '26.12.21');
-    attac.makeTextHighlighted();
-    attac.medit();
-    console.log(attac);
+    // class Post_scnd {
+    //     constructor(author, text, date) {
+    //         this.author = author;
+    //         this.text = text;
+    //         this.date = date;
+    //     }
+
+    //     medit(text) {
+    //         this.text = text;
+    //     }
+    // }
+    // class Attac_scnd extends Post_scnd {
+    //     constructor(author, text, date) {
+    //         super(author, text, date);
+    //         this.highlighted = false;
+    //     }
+    //     makeTextHighlighted() {
+    //         this.highlighted = true;
+    //     }
+    // }
+    // const attac_ = new Attac_scnd('Artem', 'Привет', new Date().toLocaleDateString());
+    // attac_.makeTextHighlighted();
+    // attac_.medit('Привет всем');
+    // console.log(attac_);
+
+
 }

@@ -37,6 +37,7 @@
     -->
 
     <script>
+        'use strict';
         let firstStar = document.getElementById('first');
         let secondStar = document.getElementById('second');
         let thirdStar = document.getElementById('third');
@@ -44,42 +45,44 @@
         let fifthStar = document.getElementById('fifth');
         let goldenClass = 'golden';
 
-        let Star = [firstStar, secondStar, thirdStar, fourthStar, fifthStar];
-        let len = Star.length;
+        let allStars = document.querySelectorAll('i');
+        let len = allStars.length;
 
+        /**Способ 1*/
         // for (let i = 0; i < len; i++) {
-        //     Star[i].addEventListener('mouseover', function () {
-        //         if (!Star[i].classList.contains(goldenClass)) {
-        //             Star[i].classList.add(goldenClass);
-        //             for (let q = 0; q < i; q++) {
-        //                 Star[q].classList.add(goldenClass);
-
-        //                 Star[i].addEventListener('mouseout', function () {
-        //                     Star[q].classList.remove(goldenClass);
+        //     allStars[i].addEventListener('mouseover', function () {
+        //         if (!allStars[i].classList.contains(goldenClass)) {
+        //             for (let q = 0; q <= i; q++) {
+        //                 allStars[q].classList.add(goldenClass);
+        //                 allStars[i].addEventListener('mouseout', function () {
+        //                     allStars[q].classList.remove(goldenClass);
         //                 });
         //             }
         //         }
         //     });
-        //     Star[i].addEventListener('mouseout', function () {
-        //         Star[i].classList.remove(goldenClass);
-        //     });
         // };
 
-        ////Способ 2
-        for (let i = 0; i <= len; i++) {
-            Star[i].addEventListener('mouseover', function () {
-                while (Star[i]) {
-                    Star[i].classList.add(goldenClass);
-                    Star[i] = Star[i].previousElementSibling; //Подумать Что сделать с Null?
+        /**Способ 2*/
+        allStars.forEach(singStar => {
+            singStar.addEventListener('mouseover', function () {
+                if (!singStar.classList.contains(goldenClass)) {
+                    singStar.classList.add(goldenClass);
+                    let prevEl = singStar.previousElementSibling;
+                    while (prevEl !== null) {
+                        prevEl.classList.add(goldenClass);
+                        prevEl = prevEl.previousElementSibling;
+                    }
                 }
-            });
-            Star[i].addEventListener('mouseout', function () {
-                for (i = 0; i <= len; i++) {
-                        Star[i].classList.remove(goldenClass);
+            })
+            singStar.addEventListener('mouseout', function () {
+                singStar.classList.remove(goldenClass);
+                let prevEl = singStar.previousElementSibling;
+                while (prevEl !== null) {
+                    prevEl.classList.remove(goldenClass);
+                    prevEl = prevEl.previousElementSibling;
                 }
-            });
-        }
-
+            })
+        });
     </script>
 </body>
 
